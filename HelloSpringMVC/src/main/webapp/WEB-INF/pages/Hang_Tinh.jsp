@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method='post' action='khachhang'>
+<form method='post' action='Hang'>
       Nhập tên: <input name='txtname' type='text'><br>
       Nhập Nhà cung cấp :<input name='txtncc' type='text'><br>
       <input name='but1' type='submit' value='Tìm'><br>

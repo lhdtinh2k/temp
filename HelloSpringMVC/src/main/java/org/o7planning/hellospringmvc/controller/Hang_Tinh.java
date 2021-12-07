@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HangController_Tinh {
+public class Hang_Tinh {
 	@RequestMapping("/Hang")
 	public ModelAndView  dangnhap(Model model, HttpServletRequest request, HttpSession session) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("utf-8");
@@ -26,7 +26,7 @@ public class HangController_Tinh {
 			Hangbo_Tinh khbo= new Hangbo_Tinh();
 
 			if(ht==null) {//neu lan dau
-				return new ModelAndView("khachhang");
+				return new ModelAndView("Hang_Tinh");
 				
 			}else{
 				ArrayList<Hangbean_Tinh> ds = khbo.TimKiem(ht, ncc);
@@ -36,12 +36,12 @@ public class HangController_Tinh {
 					//return "redirect:/hello";
 					//return new ModelAndView("redirect:/hello");
 					//System.out.println(ds.get(0).getTendn());
-					return new ModelAndView("khachhang");
+					return new ModelAndView("Hang_Tinh");
 				}
 				else{//dang nhap sai
 					model.addAttribute("tb", "Dang nhap sai");
 					System.out.println("ds=null");
-					return new ModelAndView("khachhang");
+					return new ModelAndView("Hang_Tinh");
 				}
 			}
 		} catch (Exception e) {

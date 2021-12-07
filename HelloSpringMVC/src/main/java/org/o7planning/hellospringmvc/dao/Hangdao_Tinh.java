@@ -15,11 +15,15 @@ public class Hangdao_Tinh {
 		//b1: ket noi vao csdl
 		dc.KetNoi();
 		//b2: Lay du lieu ve
-		String sql="Select * from Hang where tenhang like'%?%' or nhacungcap like'%?%'";
+		System.out.println("xondao1");
+		String sql="Select * from Hang where tenhang like ?  or nhacungcap like ? ";
+		System.out.println("xondao3");
 		PreparedStatement cmd=dc.cn.prepareStatement(sql);
+		System.out.println("xondao4");
 		//b3: Truyen tham so vao cau lenh sql
-		cmd.setString(1,tenhang1);
-		cmd.setString(2,nhacungcap1);
+		cmd.setString(1, "%"+tenhang1+"%");
+		cmd.setString(2, "%"+nhacungcap1+"%");
+		System.out.println("xondao2");
 		//b4: Thuc hien cau lieu
 		ResultSet rs= cmd.executeQuery();
 		//kiem tra xem nguoi dung dang nhap dung hay khong
@@ -30,12 +34,12 @@ public class Hangdao_Tinh {
 			String Mahang=rs.getString("Mahang");
 			String tenhang=rs.getString("tenhang");
 			String nhacungcap=rs.getString("nhacungcap");
-		    Double gia=rs.getDouble("sodt");
-
+		    Double gia=rs.getDouble("gia");
 			ds1.add(new Hangbean_Tinh(Mahang,tenhang,nhacungcap,gia));
 		}
 		rs.close();
 		dc.cn.close();
+		System.out.println("xondao");
 		return ds1;
 	}
 }
